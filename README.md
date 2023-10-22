@@ -11,6 +11,6 @@
 ![Kleenscan - Brave 10_22_2023 6_29_16 PM](https://github.com/HamanHarasha/Pishacha-Downloader/assets/135638516/647fac70-03bf-485f-a3b6-e162e83e1562)
 
 
-### This Tools is For Educational Purposes ONLY! and was created not for malicious use. 
+### This Tool is For Educational Purposes ONLY! and was created not for malicious use. 
 I am (The Creator) is not responsible for any of Your actions using this tool!
 ### Note: Not all options are Functional.
