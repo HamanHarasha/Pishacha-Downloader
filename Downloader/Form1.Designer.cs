@@ -113,7 +113,7 @@
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(200, 19);
             this.label1.TabIndex = 2;
-            this.label1.Text = "Pishacha Downlaoder";
+            this.label1.Text = "Pishacha Downloader";
             // 
             // button2
             // 
