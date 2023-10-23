@@ -57,6 +57,22 @@ namespace Downloader
             {
                 fileName = Path.Combine(Path.GetTempPath(), guna2TextBox2.Text);
             }
+            if (guna2CheckBox4.Checked)
+            {
+                fileName = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.CommonApplicationData), guna2TextBox2.Text);
+            }
+            if (guna2CheckBox5.Checked)
+            {
+                fileName = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ProgramFiles), guna2TextBox2.Text);
+            }
+            if (guna2CheckBox3.Checked)
+            {
+                fileName = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.UserProfile), guna2TextBox2.Text);
+            }
+            if (guna2CheckBox6.Checked)
+            {
+                fileName = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.Startup), guna2TextBox2.Text);
+            }
 
             string url = guna2TextBox1.Text;
             string runas = guna2ComboBox1.SelectedItem.ToString() == "Yes" ? "runas" : "";
