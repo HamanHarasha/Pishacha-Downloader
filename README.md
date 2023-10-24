@@ -14,7 +14,7 @@
 - Force UAC
 - Change Download Path
 - Extension Spoofing
-- Add Exclusion to C:
+- Add Windows Defender Exclusion to C:\
 - Low User Account Control to the lowest Level
 - Show Message Box
 * ~Obfuscate with .NET Reactor~ (Still on Development)
