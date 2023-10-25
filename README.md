@@ -18,7 +18,7 @@
 - Lower User Account Control to the lowest Level
 - Show Message Box
 - Hide File
-- Reboot System after installation
+- Restart System after installation
 - Trigger BSOD after installation
 * ~Obfuscate with .NET Reactor~ (Still on Development)
 
