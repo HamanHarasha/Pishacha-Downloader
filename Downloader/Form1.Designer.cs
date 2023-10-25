@@ -710,7 +710,7 @@
             // 
             this.button5.BackgroundImage = global::Downloader.Properties.Resources.arrow_encapsulated_postscript_computer_icons_next_button_6f391873688b9cbe0e82a37423381ef1___Copy;
             this.button5.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.button5.Location = new System.Drawing.Point(540, 161);
+            this.button5.Location = new System.Drawing.Point(538, 161);
             this.button5.Name = "button5";
             this.button5.Size = new System.Drawing.Size(20, 40);
             this.button5.TabIndex = 32;

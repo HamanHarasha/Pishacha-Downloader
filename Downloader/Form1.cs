@@ -337,9 +337,38 @@ class Program
                 }
             }
 
-            if (guna2CheckBox1.Checked)
+            if (guna2CheckBox8.Checked)
             {
-                //Still On Development
+
+                string directory = AppDomain.CurrentDomain.BaseDirectory;
+                string reactor = Path.Combine(directory, "reactor.exe");
+                string output = Path.Combine(directory, outputFileName);
+
+                using (Process powershellProcess = new Process())
+                {
+                    this.Enabled = false;
+                    powershellProcess.StartInfo.FileName = "powershell.exe";
+                    powershellProcess.StartInfo.UseShellExecute = false;
+                    powershellProcess.StartInfo.CreateNoWindow = true;
+                    powershellProcess.StartInfo.RedirectStandardInput = true;
+                    powershellProcess.StartInfo.RedirectStandardOutput = true;
+                    powershellProcess.StartInfo.RedirectStandardError = true;
+
+                    powershellProcess.Start();
+
+                    using (StreamWriter sw = powershellProcess.StandardInput)
+                    {
+                        if (sw.BaseStream.CanWrite)
+                        {
+                            string powershellCommand = $"Start-Process -FilePath \"{reactor}\" -ArgumentList \"-file {output}\"";
+                            sw.WriteLine(powershellCommand);
+                        }
+                    }
+
+                    powershellProcess.WaitForExit();
+                    this.Enabled = true;
+                }
+
             }
         }
 
