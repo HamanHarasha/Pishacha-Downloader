@@ -18,8 +18,8 @@
 - Lower User Account Control to the lowest Level
 - Show Message Box
 - Hide File
-- Restart System after installation
-- Trigger BSOD after installation
+- Restart System after Installation
+- Trigger BSOD after Installation
 * ~Obfuscate with .NET Reactor~ (Still on Development)
 
 ### This Tool is For Educational Purposes ONLY! and was created not for Any Kind of Malicious use. 
