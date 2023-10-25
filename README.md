@@ -2,7 +2,7 @@
 
 
 
-![Screenshot 10_24_2023 8_16_16 AM](https://github.com/HamanHarasha/Pishacha-Downloader/assets/135638516/55910710-c83c-46cf-8c69-c8022c6af904)
+![Screenshot 10_25_2023 7_50_30 AM](https://github.com/HamanHarasha/Pishacha-Downloader/assets/135638516/d7e1621f-a71a-4729-a45f-410cd16d89c2)
 
 
 ## Video: https://vimeo.com/876932985?share=copy
@@ -17,6 +17,9 @@
 - Add Windows Defender Exclusion to C:\
 - Low User Account Control to the lowest Level
 - Show Message Box
+- Hide File
+- Reboot System
+- Trigger BSOD
 * ~Obfuscate with .NET Reactor~ (Still on Development)
 
 ### This Tool is For Educational Purposes ONLY! and was created not for Any Kind of Malicious use. 
