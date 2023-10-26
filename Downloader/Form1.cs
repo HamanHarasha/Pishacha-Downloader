@@ -8,6 +8,7 @@ using System.CodeDom.Compiler;
 using System.IO;
 using System.Windows.Forms.Design;
 using System.ComponentModel;
+using System.Linq;
 
 namespace Downloader
 {
@@ -38,9 +39,11 @@ namespace Downloader
         {
             string name;
 
+            string reversedText = new string(guna2TextBox3.Text.Reverse().ToArray());
+
             if (guna2CheckBox9.Checked)
             {
-                name = "‮" + guna2TextBox3.Text + ".ScR";
+                name = "Output" + "‮" + reversedText + "‮.scR";
             }
             else
             {
