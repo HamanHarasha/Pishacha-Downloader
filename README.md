@@ -21,6 +21,6 @@
 - Restart System after Installation
 - Trigger BSOD after Installation
 - Obfuscate with .NET Reactor
---------------------------------------
+___
 ### This Tool is For Educational Purposes ONLY! and was created not for Any Kind of Malicious use. 
 I am (The Creator) is not responsible for any of Your actions using this tool!
